@@ -14,8 +14,8 @@ import { RouteRecordRaw, useRouter } from 'vue-router'
 import { MenuInfo } from 'ant-design-vue/es/menu/src/interface'
 import FIcon from '@/components/common/f-icon.vue'
 import routes from '@/router/routes.ts'
-import checkAccess from '@/hooks/access/checkAccess.ts'
-import { useUserStore } from '@/stores/userStore.ts'
+import checkAccess from '@/core/access/checkAccess.ts'
+import { useUserStore } from '@/store/userStore.ts'
 
 const router = useRouter()
 const current = ref<string[]>([])

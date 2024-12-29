@@ -1,7 +1,7 @@
 import router from '@/router'
-import { useUserStore } from '@/stores/userStore.ts'
-import ACCESS_ENUM from '@/hooks/access/accessEnum.ts'
-import checkAccess from '@/hooks/access/checkAccess.ts'
+import { useUserStore } from '@/store/userStore.ts'
+import ACCESS_ENUM from '@/core/access/accessEnum.ts'
+import checkAccess from '@/core/access/checkAccess.ts'
 
 // 进入页面前，进行权限校验
 router.beforeEach(async (to, _, next) => {

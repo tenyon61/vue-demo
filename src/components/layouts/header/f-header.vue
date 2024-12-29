@@ -31,7 +31,7 @@
             </a-dropdown>
           </div>
           <div v-else>
-            <a-button type="primary" href="/uc/login">登录</a-button>
+            <a-button type="primary" href="/user/login">登录</a-button>
           </div>
         </div>
       </a-col>
@@ -39,29 +39,29 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useUserStore } from '@/stores/userStore.ts'
+import { useUserStore } from '@/store/userStore.ts'
 import notLoginUser from '@/assets/notLogin.png'
 import router from '@/router'
-import { userLogoutUsingPost } from '@/api/userController.ts'
+import { userLogout } from '@/api/userController.ts'
 import { message } from 'ant-design-vue'
 
 const userStore = useUserStore()
 
 const doDropItemClick = async (key: string) => {
   if (key === 'logout') {
-    const res = await userLogoutUsingPost()
+    const res = await userLogout()
     if (res.data.code === 0) {
       userStore.setLoginUser({
         userName: '未登录',
       })
       message.success('退出登录成功')
-      await router.push('/uc/login')
+      await router.push('/user/login')
     } else {
       message.error('退出登录失败，' + res.data.message)
     }
   }
   if (key === 'profile') {
-    router.push('/uc/profile')
+    router.push('/user/profile')
   }
 }
 </script>

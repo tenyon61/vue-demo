@@ -1,8 +1,8 @@
 import type { RouteRecordRaw } from 'vue-router'
 import HomePage from '@/views/HomeView.vue'
 import UserManageView from '@/views/console/UserManagerView.vue'
-import UserRegisterView from '@/views/uc/UserRegisterView.vue'
-import UserLoginView from '@/views/uc/UserLoginView.vue'
+import UserRegisterView from '@/views/user/UserRegisterView.vue'
+import UserLoginView from '@/views/user/UserLoginView.vue'
 // 路由菜单
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: '/uc/login',
+    path: '/user/login',
     name: 'userLogin',
     component: UserLoginView,
     meta: {
@@ -24,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: '/uc/register',
+    path: '/user/register',
     name: 'userRegister',
     component: UserRegisterView,
     meta: {

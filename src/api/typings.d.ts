@@ -1,53 +1,41 @@
 declare namespace API {
-  type BaseResponseBoolean_ = {
+  type BaseResponseBoolean = {
     code?: number
     data?: boolean
     message?: string
   }
 
-  type BaseResponseListString_ = {
-    code?: number
-    data?: string[]
-    message?: string
-  }
-
-  type BaseResponseLoginUserVO_ = {
+  type BaseResponseLoginUserVO = {
     code?: number
     data?: LoginUserVO
     message?: string
   }
 
-  type BaseResponseLong_ = {
+  type BaseResponseLong = {
     code?: number
     data?: number
     message?: string
   }
 
-  type BaseResponsePageUser_ = {
+  type BaseResponsePageUser = {
     code?: number
-    data?: PageUser_
+    data?: PageUser
     message?: string
   }
 
-  type BaseResponsePageUserVO_ = {
+  type BaseResponsePageUserVO = {
     code?: number
-    data?: PageUserVO_
+    data?: PageUserVO
     message?: string
   }
 
-  type BaseResponseString_ = {
-    code?: number
-    data?: string
-    message?: string
-  }
-
-  type BaseResponseUser_ = {
+  type BaseResponseUser = {
     code?: number
     data?: User
     message?: string
   }
 
-  type BaseResponseUserVO_ = {
+  type BaseResponseUserVO = {
     code?: number
     data?: UserVO
     message?: string
@@ -57,88 +45,84 @@ declare namespace API {
     id?: number
   }
 
-  type deleteUsingPUTParams = {
-    /** filename */
-    filename: string
+  type getUserByIdParams = {
+    id: number
   }
 
-  type downloadUsingGETParams = {
-    /** filename */
-    filename: string
-  }
-
-  type getHttpUrlUsingGETParams = {
-    /** filename */
-    filename: string
-  }
-
-  type getUserByIdUsingGETParams = {
-    /** id */
-    id?: number
-  }
-
-  type getUserVOByIdUsingGETParams = {
-    /** id */
-    id?: number
+  type getUserVOByIdParams = {
+    id: number
   }
 
   type LoginUserVO = {
-    createTime?: string
-    editTime?: string
     id?: number
-    updateTime?: string
-    userAvatar?: string
     userName?: string
+    userAvatar?: string
     userProfile?: string
     userRole?: string
     vipNumber?: number
+    editTime?: string
+    createTime?: string
+    updateTime?: string
   }
 
-  type PageUser_ = {
-    current?: number
-    pages?: number
+  type OrderItem = {
+    column?: string
+    asc?: boolean
+  }
+
+  type PageUser = {
     records?: User[]
-    size?: number
     total?: number
-  }
-
-  type PageUserVO_ = {
+    size?: number
     current?: number
+    orders?: OrderItem[]
+    optimizeCountSql?: PageUser
+    searchCount?: PageUser
+    optimizeJoinOfCountSql?: boolean
+    maxLimit?: number
+    countId?: string
     pages?: number
-    records?: UserVO[]
-    size?: number
-    total?: number
   }
 
-  type uploadFileUsingPOSTParams = {
-    biz?: string
+  type PageUserVO = {
+    records?: UserVO[]
+    total?: number
+    size?: number
+    current?: number
+    orders?: OrderItem[]
+    optimizeCountSql?: PageUserVO
+    searchCount?: PageUserVO
+    optimizeJoinOfCountSql?: boolean
+    maxLimit?: number
+    countId?: string
+    pages?: number
   }
 
   type User = {
-    createTime?: string
-    editTime?: string
     id?: number
-    inviteUser?: number
-    isDelete?: number
-    mpOpenId?: string
-    shareCode?: string
-    unionId?: string
-    updateTime?: string
     userAccount?: string
-    userAvatar?: string
-    userName?: string
     userPassword?: string
+    unionId?: string
+    mpOpenId?: string
+    userName?: string
+    userAvatar?: string
     userProfile?: string
     userRole?: string
+    vipNumber?: number
     vipCode?: string
     vipExpireTime?: string
-    vipNumber?: number
+    shareCode?: string
+    inviteUser?: number
+    editTime?: string
+    createTime?: string
+    updateTime?: string
+    isDelete?: number
   }
 
   type UserAddRequest = {
+    userName?: string
     userAccount?: string
     userAvatar?: string
-    userName?: string
     userRole?: string
   }
 
@@ -149,43 +133,43 @@ declare namespace API {
 
   type UserQueryRequest = {
     current?: number
-    id?: number
     pageSize?: number
     sortField?: string
     sortOrder?: string
-    userAccount?: string
+    id?: number
     userName?: string
+    userAccount?: string
     userProfile?: string
     userRole?: string
   }
 
   type UserRegisterRequest = {
-    checkPassword?: string
     userAccount?: string
     userPassword?: string
+    checkPassword?: string
   }
 
   type UserUpdateMyRequest = {
-    userAvatar?: string
     userName?: string
+    userAvatar?: string
     userProfile?: string
   }
 
   type UserUpdateRequest = {
     id?: number
-    userAvatar?: string
     userName?: string
+    userAvatar?: string
     userProfile?: string
     userRole?: string
   }
 
   type UserVO = {
-    createTime?: string
     id?: number
     userAccount?: string
-    userAvatar?: string
     userName?: string
+    userAvatar?: string
     userProfile?: string
     userRole?: string
+    createTime?: string
   }
 }
