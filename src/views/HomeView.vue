@@ -1,14 +1,7 @@
 <template>
-  <div id="homeView">
-    <h1>{{ msg }}</h1>
-  </div>
+  <h1>首页</h1>
 </template>
 
-<script lang="ts" setup>
-const msg = 'Hello World, 你将拥有丝滑的体验!'
-</script>
+<script setup lang="ts"></script>
 
-<style lang="scss" scoped>
-#homeView {
-}
-</style>
+<style scoped lang="scss"></style>
