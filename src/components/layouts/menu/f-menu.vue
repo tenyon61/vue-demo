@@ -29,7 +29,10 @@ const handleMenuClick = (info: MenuInfo) => {
   })
 }
 const userStore = useUserStore()
-// 动态生成菜单项
+/**
+ * 生成菜单项
+ * @param routes
+ */
 const getMenuItems: any = (routes: Array<RouteRecordRaw>) => {
   const items = routes.map((route) => {
     // 处理菜单项基本信息
@@ -45,8 +48,12 @@ const getMenuItems: any = (routes: Array<RouteRecordRaw>) => {
   })
   return items
 }
-const meunItems = computed(() => {
-  const visibleRoutes = routes.filter((item) => {
+/**
+ * 过滤路由
+ * @param routes
+ */
+const filterRoutes = (routes: Array<RouteRecordRaw>) => {
+  return routes.filter((item) => {
     if (item.meta?.hideInMenu) {
       return false
     }
@@ -54,8 +61,15 @@ const meunItems = computed(() => {
     if (!checkAccess(userStore.loginUser, JSON.stringify(item.meta?.roles))) {
       return false
     }
+    // 递归过滤 children
+    if (item?.children) {
+      item.children = filterRoutes(item.children)
+    }
     return true
   })
+}
+const meunItems = computed(() => {
+  const visibleRoutes = filterRoutes(routes)
   return getMenuItems(visibleRoutes)
 })
 </script>
