@@ -15,32 +15,52 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: '/user/login',
-    name: 'userLogin',
-    component: UserLoginView,
+    path: '/user',
+    name: 'User',
     meta: {
-      label: '用户登录',
       hideInMenu: true,
     },
+    children: [
+      {
+        path: '/user/login',
+        name: 'userLogin',
+        component: UserLoginView,
+        meta: {
+          label: '用户登录',
+          hideInMenu: true,
+        },
+      },
+      {
+        path: '/user/register',
+        name: 'userRegister',
+        component: UserRegisterView,
+        meta: {
+          label: '用户注册',
+          hideInMenu: true,
+        },
+      },
+    ],
   },
   {
-    path: '/user/register',
-    name: 'userRegister',
-    component: UserRegisterView,
+    path: '/console',
+    name: 'Console',
     meta: {
-      label: '用户注册',
-      hideInMenu: true,
-    },
-  },
-  {
-    path: '/console/usermanage',
-    name: 'userManage',
-    component: UserManageView,
-    meta: {
-      label: '用户管理',
+      label: "后台管理",
       icon: 'ant-design:crown-outlined',
       roles: ['admin'],
     },
+    children: [
+      {
+        path: '/console/usermanage',
+        name: 'userManage',
+        component: UserManageView,
+        meta: {
+          label: '用户管理',
+          icon: 'ant-design:crown-outlined',
+          roles: ['admin'],
+        },
+      },
+    ],
   },
 ]
 
