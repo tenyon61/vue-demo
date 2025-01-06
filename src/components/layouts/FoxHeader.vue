@@ -3,12 +3,12 @@
     <a-row :wrap="false">
       <a-col flex="180px">
         <div class="title-bar">
-          <img class="logo" src="../../../assets/vue.svg" alt="logo" />
+          <img class="logo" src="../../assets/vue.svg" alt="logo" />
           <div class="title">亿智狐前端库</div>
         </div>
       </a-col>
       <a-col flex="auto">
-        <f-menu></f-menu>
+        <FoxMenu></FoxMenu>
       </a-col>
       <a-col flex="80px">
         <div class="right">
