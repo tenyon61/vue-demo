@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { userRegister } from '@/api/userController.ts'
+import { register } from '@/api/authController.ts'
 import { message } from 'ant-design-vue'
 import { useRouter } from 'vue-router'
 
@@ -59,7 +59,7 @@ const handleSubmit = async (values: any) => {
     message.error('两次输入的密码不一致')
     return
   }
-  const res = await userRegister(values)
+  const res = await register(values)
   // 注册成功，跳转到登录页面
   if (res.data.code === 0 && res.data.data) {
     message.success('注册成功')
