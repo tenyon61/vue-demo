@@ -14,7 +14,7 @@ import { useRouter } from 'vue-router'
 import { MenuInfo } from 'ant-design-vue/es/menu/src/interface'
 import routes from '@/router/routes.ts'
 import { useUserStore } from '@/store/userStore.ts'
-import { filterRoutes, getMenuItems } from '@/core/generateMenu.ts'
+import { filterRoutes, getMenuItems } from '@/composables/generateMenu.ts'
 
 const router = useRouter()
 const current = ref<string[]>([])

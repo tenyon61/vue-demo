@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router'
-import checkAccess from '@/core/access/checkAccess.ts'
+import checkAccess from '@/composables/access/checkAccess.ts'
 import FoxIcon from '@/components/common/FoxIcon.vue'
 
 /**
