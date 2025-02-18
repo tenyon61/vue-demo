@@ -1,4 +1,4 @@
-CQVO0-ADMIN-UI
+vue-demo
 
 scripts(new)
 ~~~
