@@ -45,7 +45,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/console',
     name: 'Console',
     meta: {
-      label: "后台管理",
+      label: '后台管理',
       icon: 'ant-design:crown-outlined',
       roles: ['admin'],
     },
