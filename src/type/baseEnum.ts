@@ -8,5 +8,4 @@ const ACCESS_ENUM = {
   VIP: 'vip',
   SVIP: 'svip',
 }
-
 export default ACCESS_ENUM

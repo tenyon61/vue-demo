@@ -1,18 +1,20 @@
 vue-demo
 
 scripts(new)
+
 ~~~
 "openapi": "openapi2ts openapi2ts.config.ts"
 ~~~
 
-
 dependencies(new)
+
 ~~~
 1. axios
 2. ant-design-vue
 ~~~
 
 dev_dependencies(new)
+
 ~~~
 1. @iconify/vue
 2. @umijs/openapi

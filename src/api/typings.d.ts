@@ -1,65 +1,6 @@
 declare namespace API {
-  type BaseResponseBoolean = {
-    /** 响应代码 */
-    code?: number
-    /** 响应内容 */
-    data?: boolean
-    /** 响应消息 */
-    message?: string
-  }
-
-  type BaseResponseLoginUserVO = {
-    /** 响应代码 */
-    code?: number
-    data?: LoginUserVO
-    /** 响应消息 */
-    message?: string
-  }
-
-  type BaseResponseLong = {
-    /** 响应代码 */
-    code?: number
-    /** 响应内容 */
-    data?: number
-    /** 响应消息 */
-    message?: string
-  }
-
-  type BaseResponsePageUser = {
-    /** 响应代码 */
-    code?: number
-    data?: PageUser
-    /** 响应消息 */
-    message?: string
-  }
-
-  type BaseResponsePageUserVO = {
-    /** 响应代码 */
-    code?: number
-    data?: PageUserVO
-    /** 响应消息 */
-    message?: string
-  }
-
-  type BaseResponseUser = {
-    /** 响应代码 */
-    code?: number
-    data?: User
-    /** 响应消息 */
-    message?: string
-  }
-
-  type BaseResponseUserVO = {
-    /** 响应代码 */
-    code?: number
-    data?: UserVO
-    /** 响应消息 */
-    message?: string
-  }
-
-  type DeleteRequest = {
-    /** id */
-    id?: number
+  type deleteUserParams = {
+    id: number
   }
 
   type getUserByIdParams = {
@@ -74,21 +15,11 @@ declare namespace API {
     /** id */
     id?: number
     /** 用户昵称 */
-    userName?: string
+    name?: string
     /** 用户头像 */
-    userAvatar?: string
-    /** 用户简介 */
-    userProfile?: string
-    /** 用户角色 */
-    userRole?: string
-    /** 会员编号 */
-    vipNumber?: number
-    /** 编辑时间 */
-    editTime?: string
-    /** 创建时间 */
-    createTime?: string
-    /** 更新时间 */
-    updateTime?: string
+    avatar?: string
+    /** 令牌 */
+    token?: string
   }
 
   type OrderItem = {
@@ -124,46 +55,113 @@ declare namespace API {
     pages?: number
   }
 
+  type resetPwdParams = {
+    id: number
+  }
+
+  type RtnDataBoolean = {
+    /** 响应代码 */
+    code?: number
+    /** 响应内容 */
+    data?: boolean
+    /** 响应消息 */
+    message?: string
+  }
+
+  type RtnDataLoginUserVO = {
+    /** 响应代码 */
+    code?: number
+    data?: LoginUserVO
+    /** 响应消息 */
+    message?: string
+  }
+
+  type RtnDataLong = {
+    /** 响应代码 */
+    code?: number
+    /** 响应内容 */
+    data?: number
+    /** 响应消息 */
+    message?: string
+  }
+
+  type RtnDataPageUser = {
+    /** 响应代码 */
+    code?: number
+    data?: PageUser
+    /** 响应消息 */
+    message?: string
+  }
+
+  type RtnDataPageUserVO = {
+    /** 响应代码 */
+    code?: number
+    data?: PageUserVO
+    /** 响应消息 */
+    message?: string
+  }
+
+  type RtnDataUser = {
+    /** 响应代码 */
+    code?: number
+    data?: User
+    /** 响应消息 */
+    message?: string
+  }
+
+  type RtnDataUserVO = {
+    /** 响应代码 */
+    code?: number
+    data?: UserVO
+    /** 响应消息 */
+    message?: string
+  }
+
   type User = {
     id?: number
-    userAccount?: string
-    userPassword?: string
-    unionId?: string
-    mpOpenId?: string
-    userName?: string
-    userAvatar?: string
-    userProfile?: string
+    account?: string
+    password?: string
+    name?: string
+    avatar?: string
+    email?: string
+    phone?: string
+    profile?: string
+    sex?: number
+    openId?: string
+    activeStatus?: number
+    lastOptTime?: string
+    ipInfo?: Record<string, any>
+    itemId?: number
     userRole?: string
-    vipNumber?: number
-    vipCode?: string
-    vipExpireTime?: string
-    shareCode?: string
-    inviteUser?: number
-    editTime?: string
+    status?: number
     createTime?: string
     updateTime?: string
     isDelete?: number
   }
 
-  type UserAddRequest = {
-    /** 用户昵称 */
-    userName?: string
+  type UserAddDTO = {
     /** 账号 */
-    userAccount?: string
-    /** 用户头像 */
-    userAvatar?: string
+    account?: string
+    /** 用户昵称 */
+    name?: string
+    /** 性别 */
+    sex?: number
+    /** 邮箱 */
+    email?: string
+    /** 手机号 */
+    phone?: string
     /** 用户角色 */
     userRole?: string
   }
 
-  type UserLoginRequest = {
+  type UserLoginDTO = {
     /** 账号 */
-    userAccount?: string
+    account?: string
     /** 密码 */
-    userPassword?: string
+    password?: string
   }
 
-  type UserQueryRequest = {
+  type UserQueryDTO = {
     /** 当前页号 */
     current?: number
     /** 页面大小 */
@@ -175,57 +173,69 @@ declare namespace API {
     /** id */
     id?: number
     /** 用户昵称 */
-    userName?: string
+    name?: string
     /** 用户账号 */
-    userAccount?: string
+    account?: string
     /** 简介 */
-    userProfile?: string
+    profile?: string
+    /** 邮箱 */
+    email?: string
+    /** 手机号 */
+    phone?: string
     /** 用户角色 */
     userRole?: string
   }
 
-  type UserRegisterRequest = {
+  type UserRegisterDTO = {
     /** 账号 */
-    userAccount?: string
+    account?: string
     /** 首次输入密码 */
-    userPassword?: string
+    password?: string
     /** 二次输入密码 */
     checkPassword?: string
   }
 
-  type UserUpdateMyRequest = {
-    /** 用户昵称 */
-    userName?: string
-    /** 用户头像 */
-    userAvatar?: string
-    /** 简介 */
-    userProfile?: string
-  }
-
-  type UserUpdateRequest = {
+  type UserUpdateDTO = {
     /** id */
-    id?: number
+    id: number
     /** 用户昵称 */
-    userName?: string
-    /** 用户头像 */
-    userAvatar?: string
-    /** 简介 */
-    userProfile?: string
+    name?: string
+    /** 账号 */
+    account?: string
+    /** 性别 */
+    sex?: number
+    /** 邮箱 */
+    email?: string
+    /** 手机号 */
+    phone?: string
     /** 用户角色 */
     userRole?: string
+  }
+
+  type UserUpdateMyDTO = {
+    /** 用户昵称 */
+    name?: string
+    /** 用户头像 */
+    avatar?: string
+    /** 简介 */
+    profile?: string
   }
 
   type UserVO = {
     /** id */
     id?: number
     /** 账号 */
-    userAccount?: string
+    account?: string
     /** 用户昵称 */
-    userName?: string
+    name?: string
     /** 用户头像 */
-    userAvatar?: string
+    avatar?: string
     /** 用户简介 */
-    userProfile?: string
+    profile?: string
+    /** 邮箱 */
+    email?: string
+    /** 手机号 */
+    phone?: string
     /** 用户角色 */
     userRole?: string
     /** 创建时间 */

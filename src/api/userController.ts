@@ -3,8 +3,8 @@
 import request from '@/request.ts'
 
 /** 创建用户 POST /api/user/add */
-export async function addUser(body: API.UserAddRequest, options?: { [key: string]: any }) {
-  return request<API.BaseResponseLong>('/api/user/add', {
+export async function addUser(body: API.UserAddDTO, options?: { [key: string]: any }) {
+  return request<API.RtnDataLong>('/api/user/add', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -14,14 +14,16 @@ export async function addUser(body: API.UserAddRequest, options?: { [key: string
   })
 }
 
-/** 删除用户 POST /api/user/delete */
-export async function deleteUser(body: API.DeleteRequest, options?: { [key: string]: any }) {
-  return request<API.BaseResponseBoolean>('/api/user/delete', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
+/** 删除用户 DELETE /api/user/delete/${param0} */
+export async function deleteUser(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.deleteUserParams,
+  options?: { [key: string]: any },
+) {
+  const { id: param0, ...queryParams } = params
+  return request<API.RtnDataBoolean>(`/api/user/delete/${param0}`, {
+    method: 'DELETE',
+    params: { ...queryParams },
     ...(options || {}),
   })
 }
@@ -32,7 +34,7 @@ export async function getUserById(
   params: API.getUserByIdParams,
   options?: { [key: string]: any },
 ) {
-  return request<API.BaseResponseUser>('/api/user/get', {
+  return request<API.RtnDataUser>('/api/user/get', {
     method: 'GET',
     params: {
       ...params,
@@ -41,13 +43,25 @@ export async function getUserById(
   })
 }
 
-/** 根据 id 获取包装类 GET /api/user/getVO */
+/** 分页获取用户列表（仅管理员） POST /api/user/getUserPage */
+export async function getUserPage(body: API.UserQueryDTO, options?: { [key: string]: any }) {
+  return request<API.RtnDataPageUser>('/api/user/getUserPage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  })
+}
+
+/** 根据 id 获取包装类 GET /api/user/getUserVO */
 export async function getUserVoById(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
   params: API.getUserVOByIdParams,
   options?: { [key: string]: any },
 ) {
-  return request<API.BaseResponseUserVO>('/api/user/getVO', {
+  return request<API.RtnDataUserVO>('/api/user/getUserVO', {
     method: 'GET',
     params: {
       ...params,
@@ -56,9 +70,9 @@ export async function getUserVoById(
   })
 }
 
-/** 分页获取用户列表（仅管理员） POST /api/user/listPage */
-export async function listUserByPage(body: API.UserQueryRequest, options?: { [key: string]: any }) {
-  return request<API.BaseResponsePageUser>('/api/user/listPage', {
+/** 分页获取用户封装列表（仅管理员） POST /api/user/getUserVOPage */
+export async function getUserVoPage(body: API.UserQueryDTO, options?: { [key: string]: any }) {
+  return request<API.RtnDataPageUserVO>('/api/user/getUserVOPage', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -68,24 +82,23 @@ export async function listUserByPage(body: API.UserQueryRequest, options?: { [ke
   })
 }
 
-/** 分页获取用户封装列表（仅管理员） POST /api/user/listPageVO */
-export async function listUserVoByPage(
-  body: API.UserQueryRequest,
+/** 重置密码 PUT /api/user/resetPwd/${param0} */
+export async function resetPwd(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.resetPwdParams,
   options?: { [key: string]: any },
 ) {
-  return request<API.BaseResponsePageUserVO>('/api/user/listPageVO', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    data: body,
+  const { id: param0, ...queryParams } = params
+  return request<API.RtnDataBoolean>(`/api/user/resetPwd/${param0}`, {
+    method: 'PUT',
+    params: { ...queryParams },
     ...(options || {}),
   })
 }
 
 /** 更新用户 POST /api/user/update */
-export async function updateUser(body: API.UserUpdateRequest, options?: { [key: string]: any }) {
-  return request<API.BaseResponseBoolean>('/api/user/update', {
+export async function updateUser(body: API.UserUpdateDTO, options?: { [key: string]: any }) {
+  return request<API.RtnDataBoolean>('/api/user/update', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -96,11 +109,8 @@ export async function updateUser(body: API.UserUpdateRequest, options?: { [key: 
 }
 
 /** 更新个人信息 POST /api/user/updateMy */
-export async function updateMyUser(
-  body: API.UserUpdateMyRequest,
-  options?: { [key: string]: any },
-) {
-  return request<API.BaseResponseBoolean>('/api/user/updateMy', {
+export async function updateMyUser(body: API.UserUpdateMyDTO, options?: { [key: string]: any }) {
+  return request<API.RtnDataBoolean>('/api/user/updateMy', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
