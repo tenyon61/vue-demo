@@ -121,19 +121,21 @@ declare namespace API {
     id?: number
     account?: string
     password?: string
+    unionId?: string
+    openId?: string
     name?: string
     avatar?: string
-    email?: string
-    phone?: string
     profile?: string
     sex?: number
-    openId?: string
-    activeStatus?: number
-    lastOptTime?: string
-    ipInfo?: Record<string, any>
-    itemId?: number
+    email?: string
+    phone?: string
     userRole?: string
-    status?: number
+    vipNumber?: number
+    vipCode?: string
+    vipExpireTime?: string
+    shareCode?: string
+    inviteUser?: number
+    editTime?: string
     createTime?: string
     updateTime?: string
     isDelete?: number
@@ -232,6 +234,8 @@ declare namespace API {
     avatar?: string
     /** 用户简介 */
     profile?: string
+    /** 性别 */
+    sex?: number
     /** 邮箱 */
     email?: string
     /** 手机号 */

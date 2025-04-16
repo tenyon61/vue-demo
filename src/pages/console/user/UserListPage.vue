@@ -44,7 +44,7 @@
           />
         </template>
         <template v-if="column.dataIndex === 'sex'">
-          <span class="flex-center" v-if="record.sex === 0">
+          <span class="flex-center" v-if="record.sex == 0">
             <div class="i-ri:men-line color-blue"></div>
           </span>
           <span class="flex-center" v-else>
@@ -142,7 +142,7 @@ const searchRef = ref()
 const searchParams = reactive<API.UserQueryDTO>({
   current: 1,
   pageSize: 10,
-  sortField: 'create_time',
+  sortField: 'createTime',
   sortOrder: 'ascend',
 })
 const doSearch = () => {
