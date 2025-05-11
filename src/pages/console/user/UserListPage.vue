@@ -3,10 +3,10 @@
     <!-- 搜索表单 -->
     <a-form ref="searchRef" layout="inline" :model="searchParams">
       <a-form-item name="account" label="账号">
-        <a-input v-model:value="searchParams.account" placeholder="输入账号" allow-clear />
+        <a-input v-model:value="searchParams.userAccount" placeholder="输入账号" allow-clear />
       </a-form-item>
       <a-form-item name="name" label="用户名">
-        <a-input v-model:value="searchParams.name" placeholder="输入用户名" allow-clear />
+        <a-input v-model:value="searchParams.userName" placeholder="输入用户名" allow-clear />
       </a-form-item>
       <a-space>
         <a-button class="flex-center" @click="doSearch">
@@ -35,9 +35,9 @@
       bordered
     >
       <template #bodyCell="{ column, record }">
-        <template v-if="column.dataIndex === 'avatar'">
+        <template v-if="column.dataIndex === 'userAvatar'">
           <a-image
-            :src="record.avatar ?? notLoginUser"
+            :src="record.userAvatar ?? notLoginUser"
             :style="{ borderRadius: '50%', objectFit: 'cover', width: '100%', height: '100%' }"
             :width="38"
             :height="38"
@@ -84,7 +84,7 @@
             <a-col :span="12" :offset="0">
               <a-form-item name="account" label="账号" :label-col="{ span: 8 }">
                 <a-input
-                  v-model:value="formState.account"
+                  v-model:value="formState.userAccount"
                   :disabled="tags == '1'"
                   placeholder="请填写用户账号"
                 ></a-input>
@@ -92,7 +92,7 @@
             </a-col>
             <a-col :span="12" :offset="0">
               <a-form-item name="name" label="姓名" :label-col="{ span: 8 }">
-                <a-input v-model:value="formState.name" placeholder="请填写用户姓名"></a-input>
+                <a-input v-model:value="formState.userName" placeholder="请填写用户姓名"></a-input>
               </a-form-item>
             </a-col>
           </a-row>
@@ -160,8 +160,8 @@ const tags = ref('')
 const formRef = ref()
 const formState = reactive<any>({
   id: '',
-  account: '',
-  name: '',
+  userAccount: '',
+  userName: '',
   sex: 0,
   email: '',
   phone: '',
@@ -182,8 +182,8 @@ const doEdit = async (record: API.User) => {
   Object.assign(formState, record)
 }
 const rules: Record<string, Rule[]> = {
-  account: [{ required: true, message: '用户账号不能为空' }],
-  name: [{ required: true, message: '用户名称不能为空' }],
+  userAccount: [{ required: true, message: '用户账号不能为空' }],
+  userName: [{ required: true, message: '用户名称不能为空' }],
   email: [{ pattern: /^[a-zA-Z0-9._%+-]+@(qq|163|gmail|cqbo)\.com$/, message: '请输入正确的邮箱' }],
   sex: [{ type: 'enum', enum: [0, 1] }],
   phone: [{ pattern: /^1[3-9]\d{9}$/, message: '请输入正确的手机号码' }],
@@ -295,15 +295,15 @@ const columns = [
   },
   {
     title: '账号',
-    dataIndex: 'account',
-    key: 'account',
+    dataIndex: 'userAccount',
+    key: 'userAccount',
     align: 'center',
     width: 120,
   },
   {
     title: '用户名',
-    dataIndex: 'name',
-    key: 'name',
+    dataIndex: 'userName',
+    key: 'userName',
     align: 'center',
     width: 140,
     ellipsis: true,
@@ -317,8 +317,8 @@ const columns = [
   },
   {
     title: '头像',
-    dataIndex: 'avatar',
-    key: 'avatar',
+    dataIndex: 'userAvatar',
+    key: 'userAvatar',
     align: 'center',
     width: 90,
   },
@@ -338,8 +338,8 @@ const columns = [
   },
   {
     title: '简介',
-    dataIndex: 'profile',
-    key: 'profile',
+    dataIndex: 'userProfile',
+    key: 'userProfile',
     align: 'left',
     ellipsis: true,
   },

@@ -7,7 +7,7 @@ export const useUserStore = defineStore(
   () => {
     const loginUser = ref<API.LoginUserVO>({
       token: '',
-      name: '未登录',
+      userName: '未登录',
     })
 
     /**

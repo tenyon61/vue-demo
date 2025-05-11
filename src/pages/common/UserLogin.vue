@@ -3,17 +3,17 @@
     <h2 class="title">亿智狐UI - 用户登录</h2>
     <div class="desc">企业级前端模板</div>
     <a-form :model="formState" name="basic" autocomplete="off" @finish="handleSubmit">
-      <a-form-item name="account" :rules="[{ required: true, message: '请输入账号' }]">
-        <a-input v-model:value="formState.account" placeholder="请输入账号" />
+      <a-form-item name="userAccount" :rules="[{ required: true, message: '请输入账号' }]">
+        <a-input v-model:value="formState.userAccount" placeholder="请输入账号" />
       </a-form-item>
       <a-form-item
-        name="password"
+        name="userPassword"
         :rules="[
           { required: true, message: '请输入密码' },
           { min: 5, message: '密码长度不能小于 5 位' },
         ]"
       >
-        <a-input-password v-model:value="formState.password" placeholder="请输入密码" />
+        <a-input-password v-model:value="formState.userPassword" placeholder="请输入密码" />
       </a-form-item>
       <div class="tips">
         没有账号？
@@ -35,8 +35,8 @@ import { login } from '@/api/authController.ts'
  * 表单信息
  */
 const formState: API.UserLoginDTO = reactive({
-  account: '',
-  password: '',
+  userAccount: '',
+  userPassword: '',
 })
 const router = useRouter()
 const userStore = useUserStore()

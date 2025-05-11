@@ -6,14 +6,10 @@
       </a-col>
       <a-col flex="auto">
         <a-space :size="16">
-          <a
-            class="color-black"
-            href="https://github.com/tenyon61/tms-frontend/issues"
-            target="_blank"
-          >
+          <a class="color-black" href="https://github.com/tenyon61/vue-demo/issues" target="_blank">
             <Icon icon="ri:question-line" width="2.0em"></Icon>
           </a>
-          <a class="color-black" href="https://github.com/tenyon61/tms-frontend" target="_blank">
+          <a class="color-black" href="https://github.com/tenyon61/vue-demo" target="_blank">
             <Icon icon="ri:github-fill" width="2.0em"></Icon>
           </a>
           <SysScreen></SysScreen>
@@ -22,7 +18,10 @@
       <a-col flex="80px" class="m-l4">
         <div v-if="userStore.loginUser.id">
           <a-dropdown placement="bottom">
-            <a-avatar :src="userStore.loginUser?.avatar ?? notLoginUser" size="large"></a-avatar>
+            <a-avatar
+              :src="userStore.loginUser?.userAvatar ?? notLoginUser"
+              size="large"
+            ></a-avatar>
             <template #overlay>
               <a-menu>
                 <a-menu-item @click="doDropItemClick('profile')">

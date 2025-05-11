@@ -15,9 +15,9 @@ declare namespace API {
     /** id */
     id?: number
     /** 用户昵称 */
-    name?: string
+    userName?: string
     /** 用户头像 */
-    avatar?: string
+    userAvatar?: string
     /** 令牌 */
     token?: string
   }
@@ -119,13 +119,13 @@ declare namespace API {
 
   type User = {
     id?: number
-    account?: string
-    password?: string
+    userAccount?: string
+    userPassword?: string
     unionId?: string
-    openId?: string
-    name?: string
-    avatar?: string
-    profile?: string
+    mpOpenId?: string
+    userName?: string
+    userAvatar?: string
+    userProfile?: string
     sex?: number
     email?: string
     phone?: string
@@ -143,9 +143,9 @@ declare namespace API {
 
   type UserAddDTO = {
     /** 账号 */
-    account?: string
+    userAccount?: string
     /** 用户昵称 */
-    name?: string
+    userName?: string
     /** 性别 */
     sex?: number
     /** 邮箱 */
@@ -158,9 +158,9 @@ declare namespace API {
 
   type UserLoginDTO = {
     /** 账号 */
-    account?: string
+    userAccount?: string
     /** 密码 */
-    password?: string
+    userPassword?: string
   }
 
   type UserQueryDTO = {
@@ -175,11 +175,11 @@ declare namespace API {
     /** id */
     id?: number
     /** 用户昵称 */
-    name?: string
+    userName?: string
     /** 用户账号 */
-    account?: string
+    userAccount?: string
     /** 简介 */
-    profile?: string
+    userProfile?: string
     /** 邮箱 */
     email?: string
     /** 手机号 */
@@ -190,9 +190,9 @@ declare namespace API {
 
   type UserRegisterDTO = {
     /** 账号 */
-    account?: string
+    userAccount?: string
     /** 首次输入密码 */
-    password?: string
+    userPassword?: string
     /** 二次输入密码 */
     checkPassword?: string
   }
@@ -201,9 +201,9 @@ declare namespace API {
     /** id */
     id: number
     /** 用户昵称 */
-    name?: string
+    userName?: string
     /** 账号 */
-    account?: string
+    userAccount?: string
     /** 性别 */
     sex?: number
     /** 邮箱 */
@@ -216,24 +216,24 @@ declare namespace API {
 
   type UserUpdateMyDTO = {
     /** 用户昵称 */
-    name?: string
+    userName?: string
     /** 用户头像 */
-    avatar?: string
+    userAvatar?: string
     /** 简介 */
-    profile?: string
+    userProfile?: string
   }
 
   type UserVO = {
     /** id */
     id?: number
     /** 账号 */
-    account?: string
+    userAccount?: string
     /** 用户昵称 */
-    name?: string
+    userName?: string
     /** 用户头像 */
-    avatar?: string
+    userAvatar?: string
     /** 用户简介 */
-    profile?: string
+    userProfile?: string
     /** 性别 */
     sex?: number
     /** 邮箱 */
