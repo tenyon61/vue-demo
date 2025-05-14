@@ -2,10 +2,10 @@
   <div id="userListPage">
     <!-- 搜索表单 -->
     <a-form ref="searchRef" layout="inline" :model="searchParams">
-      <a-form-item name="account" label="账号">
+      <a-form-item name="userAccount" label="账号">
         <a-input v-model:value="searchParams.userAccount" placeholder="输入账号" allow-clear />
       </a-form-item>
-      <a-form-item name="name" label="用户名">
+      <a-form-item name="userName" label="用户名">
         <a-input v-model:value="searchParams.userName" placeholder="输入用户名" allow-clear />
       </a-form-item>
       <a-space>
@@ -82,7 +82,7 @@
         <a-form ref="formRef" label-align="right" :model="formState" :rules="rules">
           <a-row>
             <a-col :span="12" :offset="0">
-              <a-form-item name="account" label="账号" :label-col="{ span: 8 }">
+              <a-form-item name="userAccount" label="账号" :label-col="{ span: 8 }">
                 <a-input
                   v-model:value="formState.userAccount"
                   :disabled="tags == '1'"
@@ -91,7 +91,7 @@
               </a-form-item>
             </a-col>
             <a-col :span="12" :offset="0">
-              <a-form-item name="name" label="姓名" :label-col="{ span: 8 }">
+              <a-form-item name="userName" label="姓名" :label-col="{ span: 8 }">
                 <a-input v-model:value="formState.userName" placeholder="请填写用户姓名"></a-input>
               </a-form-item>
             </a-col>
